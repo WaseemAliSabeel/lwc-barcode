@@ -23,11 +23,11 @@ For Scanning Bar Codes, steps involved are-
 
 Mobile View = 
 
-![](images/MobileView.png)
+<img src="images/MobileView.png" width="280" height="550">
 
 Desktop View =
 
-![](images/DesktopView.png)
+<img src="images/DesktopView.png" width="500" height="550">
 
 Scanned Examples on Mobile = 
 
