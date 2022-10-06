@@ -1,0 +1,47 @@
+<template>
+    <!-- Card to Scan any of the Supported Bar code types. Works only in Mobile App -->
+    <lightning-card icon-name="utility:scan" title="Scan Bar Code">
+
+        <!-- After a barcode is successfully scanned, its value & type are displayed below -->
+        <template if:true={scannedBarcode}>
+            <div class="slds-var-p-around_medium">Scanned barcode value is :</div>
+            <div
+                class="slds-align_absolute-center slds-var-m-vertical_small slds-text-heading_medium slds-var-p-vertical_small slds-text-color_success">
+                <lightning-formatted-text value={scannedBarcode} linkify></lightning-formatted-text>
+            </div>
+            <div class="slds-var-p-around_small slds-border_bottom">Scanned barcode Type is : 
+                <span>{scannedBarcodeType}</span></div>
+        </template>
+
+
+        <!-- The click-to-scan button. Disabled if BarcodeScanner isn't available -->
+        <div class="slds-align_absolute-center slds-var-m-vertical_large">
+            <lightning-button variant="brand" class="slds-var-m-left_x-small" disabled={scanButtonDisabled}
+                icon-name="utility:scan" label="Scan a barcode"
+                title="Open a camera view and look for any supporting 10 barcodes to scan"
+                onclick={handleBeginScanClick}>
+            </lightning-button>
+        </div>
+    </lightning-card>
+
+    <div class="slds-var-m-vertical_large"></div>
+
+    <!-- Card to generate a QR Code from user-entered content. Works in Mobile & Desktop -->
+    <lightning-card icon-name="utility:products" title="Create QR Code">
+        <div class="slds-var-p-around_medium">
+            <lightning-input type="text" label="Enter Your Content" value={strContent} placeholder="type here..."
+                required onchange={handleInputChange}></lightning-input>
+        </div>
+        <div class="slds-align_absolute-center">
+            <lightning-button variant="brand" label="Generate QR" title="Generate QR" onclick={generateQRCode}
+                class="slds-var-m-left_x-small"></lightning-button>
+            <lightning-button variant="destructive-text" label="Reset" title="Reset Content" onclick={resetContent}
+                class="slds-var-m-left_x-small"></lightning-button>
+        </div>
+
+        <template if:true={strContent}>
+            <div class="qrcodediv slds-align_absolute-center" style="height:200px;width:200px"></div>
+        </template>
+    </lightning-card>
+
+</template>
