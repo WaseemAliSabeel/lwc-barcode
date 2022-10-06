@@ -11,11 +11,11 @@ This Salesforce LWC Component contains methods to Scan any of the [Supported Bar
 QR Code Generation can be done on Desktop or Mobile experience whereas the Bar Code scanning works in *Salesforce Mobile App only.*
 
 For Scanning Bar Codes, steps involved are-
-- import lightning/mobileCapabilities
-- initiate scanner variable using method getBarcodeScanner()
-- set configuration suggesting which barcodes are supported
-- use begineCapture() method top launch mobile camera
-- read the result or handle error
+- import ```getBarcodeScanner``` from ```lightning/mobileCapabilities```
+- initiate scanner variable using method ```getBarcodeScanner()```
+- set configuration suggesting which supported barcodes are needed to scan
+- use ```begineCapture()``` method for launching mobile camera
+- read the scanned result or handle error accordingly, concluding with ```endCapture()```
 
 ---
 
